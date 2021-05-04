@@ -1,8 +1,8 @@
 #CREATING THE GRID
 #creating the header line 
-def headerLine(size, row, cell):
+def headerLine(size, row, blank):
     for a in range(size):
-        row += cell + str(a + 1)
+        row += blank + str(a + 1)
     print(row)
     
 #creating the divider line between cells
@@ -12,44 +12,50 @@ def createLine(size, row, line):
     print(row)
 
 #creating the actual rows
-def createRow(size, row, cell, counter):
+def createRow(size, row, x, y, counter):
     row = str(counter) + " "
     for r in range(size):
-        row += "|" + cell
+        row += "|" + x + "," + y
     print(row)
 
-def createGrid(size, row, cell, line):
-    headerLine(size, row, cell)
+def createGrid(size, row, x, y, line):
+    headerLine(size, row, blank)
     counter = 1
     for w in range(size):
         createLine(size, row, line)
-        createRow(size, row, cell, counter)
+        createRow(size, row, x, y, counter)
         counter +=1
 
 #creating the dictionaries
-def createDatastore(name, size, input)
-for s in range(size):
-    name[s] = []
-    for i in range(size):
-        name[s].append(inout)
-        
-#variables
+def createDatastore(name, size, coords, x, y, data):
+    for x in range(size):
+        for y in range(size):
+            name[x, y] = [cell]
+
+            
+#coord converter
+# def convertCoords():
+    #take the input string and split it into ints for x and y value, then -1 to each, that's your database reference
+
+
+#game variables
 size = 5
+
+#grid creation variables
+blank = "   "
+line = "----"
 row = ""
-cell = "     "
-line = "-----"
 
-createGrid(size, row, cell, line)
-
-createDatastore(backend, size, cell)
-createDatastore(frontend, size, cell)
-
-
-
-#then need to make each cell of the pretty grid correspond to the dict cell
+#dict creation variables
+x = 1
+y = 1
+coords = str([x, y])
+cell = ""
+datastore = {}
+visibility = {}
 
 
+createDatastore(datastore, size, coords, x, y, cell)
+createDatastore(visibility, size, coords, x, y, cell)
 
-
-
-
+print(datastore)
