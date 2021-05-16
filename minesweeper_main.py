@@ -25,9 +25,6 @@ def main():
     size = 5
     mines = 5
 
-    #grid creation variables
-    mineDisplay = "X"
-
     #dict creation variables
     defaultData = 0
     defaultBool = False
@@ -36,15 +33,13 @@ def main():
     #input variables
     selection = input("Select your coordinates (x, y): ")
 
-
-    #create the datastore dict and the visibility dict
-    numberStore = Datastore(size, defaultData)
-    visibilityStore = Datastore(size, defaultBool)
-    
     
     #generate mine coordinates and place the mines in the datastore
     mineCoords = createMineCoords(size)
-    numberStore.placeMines(mineCoords, mineDisplay)
+    for mine in mineCoords:
+        store.addMine(x, y)
+        #TODO: fix, passing x and y now, not coords
+    
 
     stripped = sanitiseInput(selection)
     chosenX, chosenY = convertInputToInt(stripped)
