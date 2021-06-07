@@ -1,6 +1,6 @@
 class Visibility:
     def __init__(self):
-        #this will make the set that stores the visibility data. the coords for all the visible cells (i.e. everything that already)
+        #this will make the set that stores the visibility data. the coords for all the visible cells (i.e. everything that has already been chosen)
         self.viz = []
 
     def isVisible(self, x, y):
