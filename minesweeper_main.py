@@ -1,12 +1,9 @@
 import random
 
 #local imports
-from handle_input import *
-from store import *
-from visibility import *
-
-#for input sanitisation purposes
-BAD_CHARS = "()[]"
+import handle_input
+import store
+import visibility
 
 
 #generate the mine coordinates
@@ -24,6 +21,7 @@ def main():
     #game variables
     size = 5
     mines = 5
+
 
     #dict creation variables
     defaultData = 0
