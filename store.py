@@ -31,38 +31,7 @@ class Store:
 
 
 #unit testing
-def testAdjacent():
-    #arrange
-    store = Store()
-    x = 2
-    y = 5
-
-    #act
-    result = store.numAdjacentMines(x, y)
-
-    #assert
-    assert(result == 0)
-
-#adjacentmines needs more testing - when the cell is a mine, when there are multiple mines, when there are no mines adjacent#
-
-#when the cell is a mine
-#set a mine at certain coords
-#check those coords in the mine dict
-'''need to make sure that the counter dict is only checked if the coords arent a part of the mine dict'''
-#when you click on a mine its game over
-
-#when there are multiple mines
-#pick coords, set mines in the surrounding coords (alter the chosen coords)
-#check no of mines in counter (make sure to check in mines dict first because thats how its going to work)
-#should return a value above one
-
-#when there are no mines
-#dont set up any mines
-#check the mines
-#shoud tell you its not in the counter dict, i.e no mines nearby
-
-
-#testing adding a mine and checking the mine
+#testing adding a mine and checking the mine - the cell is a mine
 def testAddMine():
     #arrange
     store = Store()
@@ -76,10 +45,57 @@ def testAddMine():
     result = store.isMine(x, y)
     assert(result)
 
+#when there are no adjacent mines
+def testNoMines():
+    #arrange
+    store = Store()
+    x = 2
+    y = 5
+
+    #act
+    result = store.numAdjacentMines(x, y)
+
+    #assert
+    assert(result == 0)
+
+#when there's one adjacent mine
+def testOneMine():
+    #arrange
+    store = Store()
+    x = 3
+    y = 2
+
+    store.addMine(x, y)
+
+    #act
+    result = store.numAdjacentMines(x+1, y)
+
+    #assert
+    assert(result == 1)
+
+#when there are multiple adjacent mines
+def testMultipleMines():
+    #arrange
+    store = Store()
+    x = 4
+    y = 3
+
+    store.addMine(x-1, y)
+    store.addMine(x, y+1)
+    store.addMine(x+1, y+1)
+
+    #act
+    result = store.numAdjacentMines(x, y)
+
+    #assert
+    assert(result == 3)
+
 
 def main():
     testAddMine()
-    testAdjacent()
+    testNoMines()
+    testOneMine()
+    testMultipleMines()
 
 if __name__ == "__main__":
     main()
