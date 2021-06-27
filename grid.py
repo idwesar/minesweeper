@@ -1,4 +1,3 @@
-#CREATING THE DISPLAY GRID - not actually useful yet, shows x and y coords for test purposes
 #creating the header line 
 def headerLine(size, row, blank):
     for a in range(size):
@@ -12,27 +11,34 @@ def createLine(size, row, line):
     print(row)
 
 #creating the actual rows
-def createRow(size, row, x, y, counter):
+def createRow(size, row, cell, counter):
     row = str(counter) + " "
     for r in range(size):
-        row += ("|" + x + "," + y)
+        row += ("|" + cell)
     print(row)
 
-def createGrid(size, row, x, y, line):
+def createGrid(size, row, cell, line):
     headerLine(size, row, blank)
     counter = 1
     for r in range(size):
         createLine(size, row, line)
-        createRow(size, row, x, y, counter)
+        createRow(size, row, cell, counter)
         counter +=1
 
+def main():
+    createGrid(size, row, cell, line)
 
 blank = "   "
 line = "----"
 row = ""
 size = 5
-x = "1"
-y = "1"
+cell = "   "
 counter = 1
 
-createGrid(size, row, x, y, line)
+
+#TODO: how to test?
+
+if __name__ == "__main__":
+    main()
+
+
