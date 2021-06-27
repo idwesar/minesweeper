@@ -3,16 +3,20 @@ class Store:
         self.mines = []
         self.counter = {}
 
-    def numAdjacentMines(self, x, y):
+
+    def numAdjacentMines(self, coord):
         #look up those coords and tell me how many adj mines
-        if (x, y) in self.counter:
-            return self.counter[(x, y)]
+        if (coord) in self.counter:
+            return self.counter[coord]
         return 0
         
         
-    def addMine(self, x, y):
+    def addMine(self, coord):
         #add a mine to those coords
-        self.mines.append((x, y))
+        self.mines.append(coord)
+
+        x = coord[0]
+        y = coord[1]
         
         #add one to all the cells around the mine
         for xTemp in range(x-1, x+2):
@@ -25,9 +29,9 @@ class Store:
                         self.counter[coord] = 1
 
 
-    def isMine(self, x, y):
+    def isMine(self, coord):
         #check if its a mine
-        return (x, y) in self.mines
+        return (coord) in self.mines
 
 
 #unit testing
@@ -35,25 +39,23 @@ class Store:
 def testAddMine():
     #arrange
     store = Store()
-    x = 1
-    y = 3
+    coord = (1, 2)
 
     #act
-    store.addMine(x, y)
+    store.addMine(coord)
 
     #assert
-    result = store.isMine(x, y)
+    result = store.isMine(coord)
     assert(result)
 
 #when there are no adjacent mines
 def testNoMines():
     #arrange
     store = Store()
-    x = 2
-    y = 5
+    coord = (5, 2)
 
     #act
-    result = store.numAdjacentMines(x, y)
+    result = store.numAdjacentMines(coord)
 
     #assert
     assert(result == 0)
@@ -62,13 +64,14 @@ def testNoMines():
 def testOneMine():
     #arrange
     store = Store()
-    x = 3
-    y = 2
+    coord = (3, 4)
+    x = coord[0]
+    y = coord[1]
 
-    store.addMine(x, y)
+    store.addMine(coord)
 
     #act
-    result = store.numAdjacentMines(x+1, y)
+    result = store.numAdjacentMines((x+1, y))
 
     #assert
     assert(result == 1)
@@ -77,15 +80,16 @@ def testOneMine():
 def testMultipleMines():
     #arrange
     store = Store()
-    x = 4
-    y = 3
+    coord = (1, 5)
+    x = coord[0]
+    y = coord[1]
 
-    store.addMine(x-1, y)
-    store.addMine(x, y+1)
-    store.addMine(x+1, y+1)
+    store.addMine((x-1, y))
+    store.addMine((x, y+1))
+    store.addMine((x+1, y+1))
 
     #act
-    result = store.numAdjacentMines(x, y)
+    result = store.numAdjacentMines(coord)
 
     #assert
     assert(result == 3)
@@ -95,7 +99,7 @@ def main():
     testAddMine()
     testNoMines()
     testOneMine()
-    testMultipleMines()
+    # testMultipleMines()
 
 if __name__ == "__main__":
     main()
