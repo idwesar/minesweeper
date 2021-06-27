@@ -8,3 +8,7 @@ A minesweeper game I made to develop my Python skills - currently a work in prog
  - Handle_input: validates and sanitises the user inputs, converts them into more usable formats.
  - UI_grid_creation: creates the grid which is printed to the player's command line as the UI.
  - Minesweeper_main: will pull the other files together to run the game.
+
+##To Do:
+ - finish testing minesweeper_main, bring the  backend elements together
+ - 
