@@ -12,3 +12,4 @@ A minesweeper game I made to develop my Python skills - currently a work in prog
 ## To Do:
  - Finish testing minesweeper_main, bring the  backend elements together
  - Test visibility when imported into minesweeper_main
+ - Test grid
