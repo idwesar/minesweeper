@@ -9,6 +9,6 @@ A minesweeper game I made to develop my Python skills - currently a work in prog
  - UI_grid_creation: creates the grid which is printed to the player's command line as the UI.
  - Minesweeper_main: will pull the other files together to run the game.
 
-##To Do:
+## To Do:
  - finish testing minesweeper_main, bring the  backend elements together
  - 
