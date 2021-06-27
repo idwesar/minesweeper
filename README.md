@@ -10,5 +10,5 @@ A minesweeper game I made to develop my Python skills - currently a work in prog
  - Minesweeper_main: will pull the other files together to run the game.
 
 ## To Do:
- - finish testing minesweeper_main, bring the  backend elements together
- - 
+ - Finish testing minesweeper_main, bring the  backend elements together
+ - Test visibility when imported into minesweeper_main
